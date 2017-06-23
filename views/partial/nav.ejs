@@ -2,14 +2,26 @@
 <html>
     <head>
         <link rel = 'stylesheet' type = 'text/css' href = '/assets/style.css'/>
+        <script>
+            window.onload = function(){
+                let elems = document.getElementsByClassName('sub-nav');
+                for(let i = 0; i<elems.length; i++)
+                {
+                    if(elems[i].firstElementChild.href == window.location.href)
+                    {
+                        elems[i].id = 'current';
+                    }
+                }
+            };
+        </script>
     </head>
 
     <body>
         <div id='nav'>
             <div> <h1> LOGO </h1> </div>
-            <div> <a href = '/'>Home</a> </div>
-            <div> <a href = '/contact'>Contact Us</a> </div>
-            <div> <a href = '/about'>About Us</a> </div>
+            <div class = 'sub-nav'> <a href = '/'>Home</a> </div>
+            <div class = 'sub-nav'> <a href = '/contact'>Contact Us</a> </div>
+            <div class = 'sub-nav'> <a href = '/about'>About Us</a> </div>
         </div>
     </body>
 </html>
