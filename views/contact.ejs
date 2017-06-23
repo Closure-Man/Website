@@ -8,8 +8,15 @@
     <body>
              <% include partial/nav.ejs %>
              <div id= 'container'>
-                <h1>Contact</h1>
-                <p>Contact Page</p>
+                <h1>Contact Us</h1>
+                <form>
+                    <p>Your Email: </p>
+                    <input type='email' text = 'email'>
+
+                    <p>Message: </p>
+
+                    <textarea name='message' rows=20 cols=70 maxlength="2000"></textarea>
+                </form>
              </div>
     </body>
 </html>

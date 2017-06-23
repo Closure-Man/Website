@@ -7,7 +7,7 @@
                 let elems = document.getElementsByClassName('sub-nav');
                 for(let i = 0; i<elems.length; i++)
                 {
-                    if(elems[i].firstElementChild.href == window.location.href)
+                    if(elems[i].parentElement.href == window.location.href)
                     {
                         elems[i].id = 'current';
                     }
@@ -19,9 +19,9 @@
     <body>
         <div id='nav'>
             <div> <h1> LOGO </h1> </div>
-            <div class = 'sub-nav'> <a href = '/'>Home</a> </div>
-            <div class = 'sub-nav'> <a href = '/contact'>Contact Us</a> </div>
-            <div class = 'sub-nav'> <a href = '/about'>About Us</a> </div>
+            <a href='/'><div class = 'sub-nav'> <p>Home</p> </div></a>
+            <a href = '/contact'><div class = 'sub-nav'> <p>Contact Us</p></div></a>
+            <a href = '/about'><div class = 'sub-nav'><p>About</p></div></a>
         </div>
     </body>
 </html>
