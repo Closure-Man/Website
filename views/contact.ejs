@@ -9,13 +9,29 @@
              <% include partial/nav.ejs %>
              <div id= 'container'>
                 <h1>Contact Us</h1>
-                <form>
+                <form method='POST' action='/contact'>
                     <p>Your Email: </p>
-                    <input type='email' text = 'email'>
+                    <input name ='senderEmail' type='email'/>
+
+                    <p>To: </p>
+                    <select name='toEmail'>
+                        <option value='captain.team3006@gmail.com'>Captain</option>
+                        <option value='safety.team3006@gmail.com'>Safety</option>
+                        <option value='software.team3006@gmail.com'>Software</option>
+                        <option value='marketing.team3006@gmail.com'>Marketing</option>
+                        <option value='electrical.team3006@gmail.com'>Electrical</option>
+                        <option value='hardware.team3006@gmail.com'>Hardware</option>
+                        <option value='outreach.team3006@gmail.com'>Outreach</option>
+                        <option value='scouting.team3006@gmail.com'>Scouting</option>
+                    </select>
+                    
+                    <p>Subject Line</p>
+                    <input name ='subject' type='text'/>
 
                     <p>Message: </p>
-
                     <textarea name='message' rows=20 cols=70 maxlength="2000"></textarea>
+
+                    <p><input type='submit' value='Submit'/></p>
                 </form>
              </div>
     </body>
