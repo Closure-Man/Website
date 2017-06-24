@@ -7,6 +7,11 @@ Things to Do:
 -Add an account mechanism
 -ie Lots
 
+
+Contact Page to do:
+-Make sure the sender must put in an email
+-Possibley fix the problem where the bot doesn't send from the email specified
+
 Contributers:
 
 Ross Kilpatrick
