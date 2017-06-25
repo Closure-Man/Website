@@ -1,7 +1,14 @@
+@import('https://fonts.googleapis.com/css?family=');
+
 body
 {
     font-family: Arial, Helvetica, sans-serif;
-    background: white;
+    background: #f7f3e3;
+}
+
+h1
+{
+
 }
 
 .sub-nav
@@ -13,13 +20,13 @@ body
 
 .sub-nav:hover
 {
-    background-color: #B03000;
+    background-color: #600;
 }
 
 #container
 {
     width: 85%;
-    margin-left: 100px;
+    margin-left: 160px;
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -27,22 +34,25 @@ body
 #nav
 {
     position: fixed;
-    width: 100px;
+    width: 150px;
     height: 110%;
     margin-left: -9px;
     margin-top: -30px;
-    background: orangered;
+    background: #900;
+    /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    box-shadow: 3px 3px 3px #888888;
 }
 
 #nav a:link
 {
-    color: black;
+    color: #ccc;
     text-decoration-line: none;
 }
 
 #nav a:visited
 {
-    color: black;
+    color: #ccc;
     text-decoration-line: none;
 }
 #nav a:hover
@@ -51,7 +61,12 @@ body
     text-decoration-line: none;
 }
 
+#logo
+{
+    padding-top: 13px;
+}
+
 #current
 {
-    background-color: #B03000;
+    background-color: #600;
 }
