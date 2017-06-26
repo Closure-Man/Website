@@ -39,18 +39,25 @@ app.post('/contact', urlendcodedParser, function(req, res)
         subject: req.body.subject,
         text: req.body.senderEmail + ' ' + req.body.message
     };
-    transporter.sendMail(mailOptions, function(error, info)
+    if(!req.body.senderEmail || !req.body.message)
     {
-        if(error)
+        res.render('error');
+    }
+    else
+    {
+        transporter.sendMail(mailOptions, function(error, info)
         {
-            console.log(error);
-            res.render('error');
-        }
-        else
-        {
-            res.render('success');
-        }
-    });
+            if(error)
+            {
+                console.log(error);
+                res.render('error');
+            }
+            else
+            {
+                res.render('success');
+            }
+        });
+    }
 });
 
 app.get('/about', function(req, res)
