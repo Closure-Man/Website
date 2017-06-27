@@ -1,4 +1,4 @@
-@import('https://fonts.googleapis.com/css?family=');
+@import("https://fonts.googleapis.com/css?family=Assistant|Catamaran:300|Quicksand");
 
 body
 {
@@ -11,6 +11,10 @@ h1
     font-family: 'Segoe UI', Verdana, sans-serif;
 }
 
+.hidden
+{ 
+    visibility: hidden;
+}
 .center
 {
     /*padding-top:30%;*/
@@ -23,6 +27,7 @@ h1
     padding-right:5%;
     display: inline;
     float: left;
+    cursor: pointer;
 }
 
 .sub-nav:hover
@@ -33,24 +38,22 @@ h1
 #container
 {
     width: 85%;
-    /**/
     margin-left: 8.33%;
     padding-left: 30px;
     padding-right: 30px;
-    padding-top: 10%;
+    padding-top: 3%;
 }
 
 #nav
 {
     list-style-type:  none;
-    position: fixed;
     width: 50%;
     height: 47px;
     margin-left: 25%;
     padding-left: 0%;
     background: #900;
     /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
-    font-family: 'Segoe UI', Verdana, sans-serif;
+    font-family: 'Assistant';
     box-shadow: 3px 3px 3px #888888;
 }
 
@@ -80,4 +83,10 @@ h1
 #current
 {
     background-color: #600;
+}
+
+#resourcesDropDown
+{
+    position: relative;
+    display: inline-block;
 }

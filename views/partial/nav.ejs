@@ -13,15 +13,51 @@
                     }
                 }
             };
+
+            function dropDownShow()
+            {
+                document.getElementById('resourcesDropDown').classList.remove('hidden');
+            }
+
+            function dropDownHide()
+            {
+                document.getElementById('resourcesDropDown').classList.add('hidden');
+            }
+
+            /*window.onclick = function(event)
+            {
+                if(!event.target.matches('#dropdown'))
+                {
+                    let dropdowns = document.getElementById('resourcesDropDown');
+                    for(let i = 0; i< dropdowns.length; i++)
+                    {
+                        let openDrowndown = dropdowns[i];
+                        if(!openDrowndown.classList.contains('hidden'))
+                        {
+                            openDropdown.classList.add('hidden');
+                        }
+                    }
+                }
+            }*/
         </script>
     </head>
 
     <body>
         <span id='logo'> <img src='/assets/website-logo.png' style='max-height:200px; max-width:140px;'/> </span>
         <ul id='nav'>
-            <a href='/'><li class = 'sub-nav'>Home</li></a>
-            <a href='/about'><li class = 'sub-nav'>About</li></a>
-            <a href='/contact'><li class = 'sub-nav'>Contact</li></a>
+            <a href='/'><span class = 'sub-nav'>Home</span></a>
+            <a href='/about'><span class = 'sub-nav'>About</span></a>
+            <a href='/contact'><span class = 'sub-nav'>Contact</span></a>
+            <span id='dropdown' class ='sub-nav' onmouseover="dropDownShow()" onmouseout="dropDownHide()">
+                <span>Resources</span>
+                <p>
+                    <div id='resourcesDropDown' class='hidden'>
+                        <a href='/contact'><li >Software</li></a>
+                        <a href='/contact'><li >Electronics</li></a>
+                        <a href='/contact'><li>Hardware</li></a>
+                    </div>
+                </p>
+            </span>
         </ul>
     </body>
 </html>
