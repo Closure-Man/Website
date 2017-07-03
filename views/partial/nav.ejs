@@ -23,22 +23,6 @@
             {
                 document.getElementById('resourcesDropDown').classList.add('hidden');
             }
-
-            /*window.onclick = function(event)
-            {
-                if(!event.target.matches('#dropdown'))
-                {
-                    let dropdowns = document.getElementById('resourcesDropDown');
-                    for(let i = 0; i< dropdowns.length; i++)
-                    {
-                        let openDrowndown = dropdowns[i];
-                        if(!openDrowndown.classList.contains('hidden'))
-                        {
-                            openDropdown.classList.add('hidden');
-                        }
-                    }
-                }
-            }*/
         </script>
     </head>
 
@@ -50,13 +34,12 @@
             <a href='/contact'><span class = 'sub-nav'>Contact</span></a>
             <span id='dropdown' class ='sub-nav' onmouseover="dropDownShow()" onmouseout="dropDownHide()">
                 <span>Resources</span>
-                <p>
-                    <div id='resourcesDropDown' class='hidden'>
-                        <a href='/contact'><li >Software</li></a>
-                        <a href='/contact'><li >Electronics</li></a>
-                        <a href='/contact'><li>Hardware</li></a>
-                    </div>
-                </p>
+                <div id='resourcesDropDown' class='hidden'>
+                    <a href='/resources/software'>Software</a>
+                    <a href='/resources/electronics'>Electronics</a>
+                    <a href='/resources/hardware'>Hardware</a>
+                    <a href='/resources/safety'>Safety</a>
+                </div>
             </span>
         </ul>
     </body>

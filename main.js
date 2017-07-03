@@ -30,6 +30,26 @@ app.get('/contact', function(req, res)
     res.render('contact');
 });
 
+app.get('/resources/software', function(req, res)
+{
+    res.render('software');
+});
+
+app.get('/resources/electronics', function(req, res)
+{
+    res.render('electronics');
+});
+
+app.get('/resources/hardware', function(req, res)
+{
+    res.render('hardware');
+});
+
+app.get('/resources/safety', function(req, res)
+{
+    res.render('safety');
+});
+
 app.post('/contact', urlendcodedParser, function(req, res)
 {
     //if(!req.body) return res.send(400);
