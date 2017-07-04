@@ -13,34 +13,60 @@
                     }
                 }
             };
-
-            function dropDownShow()
-            {
-                document.getElementById('resourcesDropDown').classList.remove('hidden');
-            }
-
-            function dropDownHide()
-            {
-                document.getElementById('resourcesDropDown').classList.add('hidden');
-            }
         </script>
     </head>
 
     <body>
-        <span id='logo'> <img src='/assets/website-logo.png' style='max-height:200px; max-width:140px;'/> </span>
-        <ul id='nav'>
-            <a href='/'><span class = 'sub-nav'>Home</span></a>
-            <a href='/about'><span class = 'sub-nav'>About</span></a>
-            <a href='/contact'><span class = 'sub-nav'>Contact</span></a>
-            <span id='dropdown' class ='sub-nav' onmouseover="dropDownShow()" onmouseout="dropDownHide()">
-                <span>Resources</span>
-                <div id='resourcesDropDown' class='hidden'>
-                    <a href='/resources/software'>Software</a>
-                    <a href='/resources/electronics'>Electronics</a>
-                    <a href='/resources/hardware'>Hardware</a>
-                    <a href='/resources/safety'>Safety</a>
+        <span id = 'logo'> <img src = '/assets/website-logo.png' style = 'max-height:200px; max-width:140px;'/> </span>
+        <ul id = 'nav'>
+            
+            <a href = '/'><span class = 'sub-nav'>Home</span></a>
+
+            <span class='dropdown sub-nav'>
+                <span>About</span>
+                <div class = 'dropDownContent'>
+                    <a href = '/about'>About Us</a>
+                    <a href = '/about/first'>FIRST</a>
+                    <a href = '/about/history'>History</a>
+                    <a href = '/about/robot'>Our Robot</a>
                 </div>
             </span>
+
+            <span class = 'dropdown sub-nav'>
+                <span>Contact</span>
+                <div class='dropDownContent'>
+                    <a href = '/contact'>Contact Us</a>
+                    <a href = '/contact/socialmedia'>Social Media</a>
+                </div>
+            </span>
+
+            <span class='dropdown sub-nav'>
+                <span>Updates</span>
+                <div class='dropDownContent'>
+                    <a href = '/updates'>Posts</a>
+                    <a href = '/updates/stream'>Competition Stream</a>
+                    <a href = '/updates/calendar'>Calendar</a>
+                </div>
+            </span>
+
+            <span class='dropdown sub-nav'>
+                <span>Sponsors</span>
+                <div class = 'dropDownContent'>
+                    <a href = '/sponsors'>Our Sponsors</a>
+                    <a href = '/sponsors/info'>Info</a>
+                </div>
+            </span>
+
+            <span class = 'dropdown sub-nav'>
+                <span>Resources</span>
+                <div class='dropDownContent'>
+                    <a href = '/resources/software'>Software</a>
+                    <a href = '/resources/electronics'>Electronics</a>
+                    <a href = '/resources/hardware'>Hardware</a>
+                    <a href = '/resources/safety'>Safety</a>
+                </div>
+            </span>
+
         </ul>
     </body>
 </html>
