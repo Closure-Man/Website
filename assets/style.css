@@ -13,14 +13,11 @@ h1
 
 .sub-nav
 {
-    padding-top:13px;
-    padding-bottom: 13px;
-    padding-left: 60px;
-    padding-right:61px;
-    display: inline;
     float: left;
     cursor: pointer;
     color: #ccc; 
+    width: 10%;
+    height: 100%;    
 }
 
 .sub-nav:hover
@@ -28,14 +25,16 @@ h1
     background-color: #600;
 }
 
-
+.sub-nav p{
+    text-align: center;
+}
 
 #container
 {
     width: 85%;
     margin-left: 8.33%;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 1%;
+    padding-right: 1%;
     padding-top: 4%;
     padding-bottom: 2%;
 }
@@ -45,13 +44,15 @@ h1
     position: absolute;
     list-style-type:  none;
     width: 75.6%;
-    height: 47px;
+    height: 5.1%;
     margin-left: -1%;
     padding-left: 25%;
     background: #900;
     /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
     font-family: 'Assistant';
     box-shadow: 3px 3px 3px #888888;
+    padding-top: 0%;
+    margin-top: 0%;
 }
 
 #nav a:link
@@ -87,23 +88,24 @@ h1
 .dropDownContent
 {
     visibility: hidden;
-    margin-left: -60px;
-    margin-top: 13px;
+    margin: 0%;
     background-color: #900;
     position: absolute;
     display: block;
-    min-width: 170px;
     z-index: 1;
+    min-width: 8%;
+    font-size: 100%;
 }
 
 
 .dropDownContent a
 {
     display: block;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5px;
-    padding-right: 10px;
+    width: 100%;
+    height: 40%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    
 }
 
 
