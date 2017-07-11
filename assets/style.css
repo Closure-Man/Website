@@ -11,7 +11,7 @@ h1
     font-family: 'Segoe UI', Verdana, sans-serif;
 }
 
-.sub-nav /*VH/VW everywhere maybe*/
+.sub-nav
 {
     float: left;
     cursor: pointer;

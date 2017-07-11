@@ -4,6 +4,7 @@
 const express = require('express'); //Express lets us do routing more easily
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const https = require('https');
 
 const app = express();
 const urlendcodedParser = bodyParser.urlencoded({extended: false});
@@ -20,6 +21,12 @@ const transporter = nodemailer.createTransport({
 
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
+
+
+//Posting System
+
+
+
 
 //HOME PAGE
 
@@ -133,7 +140,62 @@ app.get('/sponsors/info', function(req, res)
 
 app.get('/updates', function(req, res)
 {
-    res.render('updatepages/posts');
+    https.get({ host: 'www.facebook.com', port: 443, headers: {'user-agent' : 'Mozilla/5.0'}, path: '/RedRockRobot'}, function(resF)
+    {
+        let body = ''
+
+        resF.on('data', function(chunk)
+        {
+            body += chunk;
+        });
+
+        resF.on('end', function()
+        {
+            let posts = new Array();
+
+
+            const CLASS = '_5pbx userContent';
+            let positionArray = new Array();
+            let postArray = new Array();
+            for(let i = 0; i < body.length; i++)
+            {
+                if(body.slice(i, (i+CLASS.length)) == CLASS)
+                {
+                    positionArray.push([i, i+CLASS.length])
+                }
+            }
+
+            for(let i = 0; i < positionArray.length; i++)
+            {
+                let nextPos = 0;
+                if(i+1 == positionArray.length)
+                {
+                    nextPos = positionArray[i][1] + 400;
+                }
+                else
+                {
+                    nextPos = positionArray[i+1][0];
+                }
+                for(let j = positionArray[i][0]; j < nextPos; j++)
+                {
+                    if(body.slice(j, j+3) == '<p>')
+                    {
+                        postArray.push([j + 3]);
+                    }
+                    else if(body.slice(j, j+4) == '</p>')
+                    {
+                        postArray[postArray.length-1].push(j)
+                    }
+                }
+            }
+
+            res.render('updatepages/posts', {body: body, postArray: postArray});
+            //console.log(body.slice(postArray[0][0], postArray[0][1]));
+        });
+    }).on('error', function(e)
+    {   
+        console.log('Error: ' + e.message);
+    });
 });
 
 app.get('/updates/stream', function(req, res)

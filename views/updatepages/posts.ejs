@@ -10,10 +10,10 @@
         <% include ../partial/nav.ejs %>
 
         <div id = 'container'>
-            <h1>Home Page</h1>
-            <p>Home Page</p> 
-            <p>Some More Stuff</p>
-            <p>Even more stuff</p>
+            <h1>Posts</h1>
+            <% for(let i = 0; i < postArray.length; i++) { %>
+                <p><%= body.slice(postArray[i][0], postArray[i][1])%></p>
+            <% } %>
         </div>
     </body>
 </html>
