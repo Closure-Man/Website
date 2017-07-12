@@ -3,7 +3,6 @@
     <head>
         <link rel = 'stylesheet' type = 'text/css' href = '/assets/style.css'/>
         <title>Red Rock Robotics</title>
-        
     </head>
 
     <body>
@@ -11,8 +10,21 @@
 
         <div id = 'container'>
             <h1>Posts</h1>
-            <% for(let i = 0; i < postArray.length; i++) { %>
-                <p><%= body.slice(postArray[i][0], postArray[i][1])%></p>
+            <%
+            let posts = new Array();
+            let content = fbDoc.getElementsByClassName('_5pbx userContent'); 
+            for(let i = 0; i < content.length; i++)
+            {
+                let temp = content[i].getElementsByTagName('p');
+                let finalP = '';
+                for(let j = 0; j < temp.length; j++)
+                {
+                    finalP += temp[j].textContent;
+                }
+                posts.push(finalP);
+            }
+            for(let i = 0; i < posts.length; i++) { %>
+                <p><%= posts[i]%></p>
             <% } %>
         </div>
     </body>
