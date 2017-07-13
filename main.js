@@ -152,8 +152,26 @@ app.get('/updates', function(req, res)
 
         resF.on('end', function()
         {
+            //Date Parent: fbUserContent
+            //date: timestampContent
             let fbDoc = new DOMParser().parseFromString(body, 'text/html');
-            res.render('updatepages/posts', {fbDoc: fbDoc});
+
+            let posts = new Array();
+            let content = fbDoc.getElementsByClassName('fbUserContent'); 
+            for(let i = 0; i < content.length; i++)
+            {
+                let para = content[i].getElementsByClassName('_5pbx userContent');
+                let date = content[i].getElementsByClassName('timestampContent')[0].textContent;
+
+                let finalP = '';
+
+                for(let j = 0; j < para.length; j++)
+                {
+                    let temp = para[j].getElementsByTagName('p');
+                    posts.push([date, temp]);
+                }
+            }
+            res.render('updatepages/posts', {posts: posts});
         });
     }).on('error', function(e)
     {   
