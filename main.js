@@ -152,8 +152,6 @@ app.get('/updates', function(req, res)
 
         resF.on('end', function()
         {
-            //Date Parent: fbUserContent
-            //date: timestampContent
             let fbDoc = new DOMParser().parseFromString(body, 'text/html');
 
             let posts = new Array();

@@ -4,6 +4,7 @@ body
 {
     font-family: Arial, Helvetica, sans-serif;
     background: #f7f3e3;
+    overflow-x: hidden;
 }
 
 h1
@@ -54,7 +55,6 @@ h1
     margin-left: -1%;
     padding-left: 25%;
     background: #900;
-    /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
     font-family: 'Assistant';
     box-shadow: 3px 3px 3px #888888;
     padding-top: 0%;
