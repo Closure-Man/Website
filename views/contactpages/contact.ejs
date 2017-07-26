@@ -10,10 +10,10 @@
              <div id= 'container'>
                 <h1>Contact Us</h1>
                 <form method='POST' action='/contact'>
-                    <p>Your Email: </p>
+                    <p class = 'contactEntry'>Your Email: </p>
                     <input name ='senderEmail' type='email'/>
                     
-                    <p>To: </p>
+                    <p class = 'contactEntry'>To: </p>
                     <select name='toEmail'>
                         <option value='captain.team3006@gmail.com'>Captain</option>
                         <option value='safety.team3006@gmail.com'>Safety</option>
@@ -24,13 +24,13 @@
                         <option value='outreach.team3006@gmail.com'>Outreach</option>
                         <option value='scouting.team3006@gmail.com'>Scouting</option>
                     </select>
-                    <p>Subject Line</p>
+                    <p class = 'contactEntry'>Subject Line</p>
                     <input name ='subject' type='text'/>
 
-                    <p>Message: </p>
+                    <p class = 'contactEntry'>Message: </p>
                     <textarea name='message' rows=20 cols=100 maxlength="2000" style= "max-height:300px; max-width:35%;"></textarea>
 
-                    <p><input type='submit' value='Submit'/></p>
+                    <p class = 'contactEntry'><input type='submit' value='Submit'/></p>
                 </form>
              </div>
     </body>
