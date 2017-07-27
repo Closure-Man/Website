@@ -12,6 +12,26 @@ h1
     font-family: 'Segoe UI', Verdana, sans-serif;
 }
 
+h2
+{
+    padding-left: 1%
+}
+
+h3
+{
+    padding-left: 1.5%;
+}
+
+p
+{
+    padding-left: 2%;
+}
+
+.contactEntry
+{
+    padding-left : 0%;
+}
+
 .sub-nav
 {
     float: left;
@@ -38,11 +58,14 @@ h1
 
 #container
 {
-    width: 85%;
-    margin-left: 8.33%;
+    background: #D1CFC9;
+    /*#EBE8DF*/
+    width: 60%;
+    margin-left: 25%;
+    margin-top: 5%;
     padding-left: 1%;
     padding-right: 1%;
-    padding-top: 4%;
+    padding-top: 0.5%;
     padding-bottom: 2%;
 }
 

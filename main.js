@@ -81,6 +81,11 @@ app.post('/contact', urlendcodedParser, function(req, res)
 
 //RESOURCE PAGES
 
+app.get('/resources', function(req, res)
+{
+    res.render('resourcepages/resources');
+});
+
 app.get('/resources/software', function(req, res)
 {
     res.render('resourcepages/software');
