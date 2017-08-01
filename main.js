@@ -178,7 +178,7 @@ app.get('/updates', function(req, res)
         });
     }).on('error', function(e)
     {   
-        console.log('Error: ' + e.message);
+        res.render('updatepages/postserror');
     });
 });
 
