@@ -148,7 +148,8 @@ app.get('/updates', function(req, res)
 {
     https.get({ host: 'www.facebook.com', port: 443, headers: {'user-agent' : 'Mozilla/5.0'}, path: '/RedRockRobot'}, function(resF)
     {
-        let body = ''
+
+        let body = '';
 
         resF.on('data', function(chunk)
         {
@@ -160,7 +161,7 @@ app.get('/updates', function(req, res)
             let fbDoc = new DOMParser().parseFromString(body, 'text/html');
 
             let posts = new Array();
-            let content = fbDoc.getElementsByClassName('fbUserContent'); 
+            let content = fbDoc.getElementsByClassName('fbUserPost'); 
             for(let i = 0; i < content.length; i++)
             {
                 let para = content[i].getElementsByClassName('_5pbx userContent');
