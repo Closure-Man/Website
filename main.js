@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const https = require('https');
 const DOMParser = require('dom-parser');
+const mongodb = require('mongodb');
 
 const app = express();
 const urlendcodedParser = bodyParser.urlencoded({extended: false});
@@ -19,6 +20,8 @@ const transporter = nodemailer.createTransport({
         pass: '#0Mn!wh3EL5'
     }
 });
+
+const mongoClient = mongodb.MongoClient;
 
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
@@ -158,6 +161,9 @@ app.get('/updates', function(req, res)
 
         resF.on('end', function()
         {
+
+            let fbFinisher = new Promise((resolve, reject) => {});
+
             let fbDoc = new DOMParser().parseFromString(body, 'text/html');
 
             let posts = new Array();
@@ -191,7 +197,39 @@ app.get('/updates/stream', function(req, res)
 app.get('/updates/calendar', function(req, res)
 {
     res.render('updatepages/calendar');
-})
+});
 
+
+//Scouting Database Stuff
+
+app.get('/scoutingdata', function(req, res) {
+    res.render('scoutingdatabase/scoutingdata');
+});
+
+app.post('/scoutingdata', urlendcodedParser, (req, res) => {
+    mongoClient.connect('mongodb://localhost:27017/sample', (error, db) => {
+        if (error) {
+            console.log("Error: " + error);
+        }
+        else {
+            let collections = db.collection('data');
+
+            collections.find({"teamnum" : req.body.teamnum}).toArray((err, result) => {
+                if(err){
+                    console.log("Error: " + err);
+                }
+                else if(result.length){
+                    console.log(result);
+                }
+                else {
+                    console.log("No Data currently");
+                }
+            });
+
+            res.render('scoutingdatabase/scoutingdata', {testing: "Special Message"});
+
+        }
+    });
+});
 
 app.listen(8080);

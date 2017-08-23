@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = 'stylesheet' type = 'text/css' href = '/assets/style.css'/>
+        <title>Red Rock Robotics - Database</title>
+        <script>
+            function changePage () {
+                location.href = "/scoutingdata/ " + 
+            }
+        </script>
+    </head>
+
+    <body>
+        <% include ../partial/nav.ejs %>
+
+        <div id = 'container'>
+            <h1>Scouting Database</h1>
+            <form action = "/scoutingdata" method = "POST">
+                <input type = "search" placeholder="Search(Team Number)" name="teamnum" />
+                <input type = "submit"/>
+            </form>
+
+
+        </div>
+    </body>
+</html>
