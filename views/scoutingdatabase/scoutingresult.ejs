@@ -20,6 +20,13 @@
                 <input type = "submit"/>
             </form>
 
+            <% for(let i =0; i < out.length; i++) { %>
+                <h2>Match Number: <%= out[i].matchnum %></h2>
+                <p>Team: <%= out[i].teamnum %></p>
+                <p>Balls Scored: <%= out[i].ballsscored %></p>
+                <p>Gears Scored: <%= out[i].gearsscored %></p>
+            <% } %>
+
         </div>
     </body>
 </html>

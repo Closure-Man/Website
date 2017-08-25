@@ -214,20 +214,23 @@ app.post('/scoutingdata', urlendcodedParser, (req, res) => {
         else {
             let collections = db.collection('data');
 
+            let output = "No data on that team yet";
+
             collections.find({"teamnum" : req.body.teamnum}).toArray((err, result) => {
                 if(err){
                     console.log("Error: " + err);
                 }
                 else if(result.length){
-                    console.log(result);
+                    output = result;
                 }
                 else {
                     console.log("No Data currently");
+                    output = [{"teamnum" : "NO DATA", "matchnum" : "NO DATA", "ballsscored" : "NO DATA", "gearsscored" : "NO DATA"}];
                 }
+                
+
+                res.render('scoutingdatabase/scoutingresult', {out: output});
             });
-
-            res.render('scoutingdatabase/scoutingdata', {testing: "Special Message"});
-
         }
     });
 });
