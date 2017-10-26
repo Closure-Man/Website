@@ -162,18 +162,14 @@ app.get('/updates', function(req, res)
         resF.on('end', function()
         {
 
-            let fbFinisher = new Promise((resolve, reject) => {});
-
             let fbDoc = new DOMParser().parseFromString(body, 'text/html');
 
             let posts = new Array();
-            let content = fbDoc.getElementsByClassName('fbUserPost'); 
+            let content = fbDoc.getElementsByClassName('fbUserStory');
             for(let i = 0; i < content.length; i++)
             {
                 let para = content[i].getElementsByClassName('_5pbx userContent');
                 let date = content[i].getElementsByClassName('timestampContent')[0].textContent;
-
-                let finalP = '';
 
                 for(let j = 0; j < para.length; j++)
                 {
@@ -214,7 +210,7 @@ app.post('/scoutingdata', urlendcodedParser, (req, res) => {
         else {
             let collections = db.collection('data');
 
-            let output = "No data on that team yet";
+            let output = [{"teamnum" : "NO DATA", "matchnum" : "NO DATA", "ballsscored" : "NO DATA", "gearsscored" : "NO DATA"}];
 
             collections.find({"teamnum" : req.body.teamnum}).toArray((err, result) => {
                 if(err){
@@ -225,7 +221,6 @@ app.post('/scoutingdata', urlendcodedParser, (req, res) => {
                 }
                 else {
                     console.log("No Data currently");
-                    output = [{"teamnum" : "NO DATA", "matchnum" : "NO DATA", "ballsscored" : "NO DATA", "gearsscored" : "NO DATA"}];
                 }
                 
 
@@ -234,5 +229,6 @@ app.post('/scoutingdata', urlendcodedParser, (req, res) => {
         }
     });
 });
+
 
 app.listen(8080);
