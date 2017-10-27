@@ -231,4 +231,8 @@ app.post('/scoutingdata', urlendcodedParser, (req, res) => {
 });
 
 
-app.listen(8080);
+app.set('port', process.env.PORT || 3000);
+
+let server = app.listen(app.get('port'), () => {
+    console.log(server.address().port);
+});

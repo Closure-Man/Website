@@ -12,7 +12,6 @@
     "mongodb": "^2.2.31",
     "nodemailer": "^4.0.1"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "node main.js"
   },
