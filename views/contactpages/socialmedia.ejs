@@ -8,31 +8,27 @@
     </head>
 
     <body>
-        <div id="fb-root"></div>
-        <script>
-            (function(d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id)) return;
-                        js = d.createElement(s); js.id = id;
-                        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
-                        fjs.parentNode.insertBefore(js, fjs);
+       <div id="fb-root"></div>
+       <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
+            fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
+
         <% include ../partial/nav.ejs %>
 
         <div id = 'container'>
             <h1>Social Media</h1>
 
-            <a href = "https://www.facebook.com/RedRockRobot/" class = "fa fa-facebook"></a>
-            <a href = "https://www.instagram.com/redrockrobotics/" class = "fa fa-instagram"></a>
-            <a href = "https://frcteam3006.tumblr.com/" class = "fa fa-tumblr"></a>
-            <a href = "https://www.snapchat.com/add/frc-3006" class = "fa fa-snapchat-ghost"></a>
+            <a href = "https://www.facebook.com/RedRockRobot/" class = "fa fa-facebook" target = "_blank"></a>
+            <a href = "https://www.instagram.com/redrockrobotics/" class = "fa fa-instagram" target = "_blank"></a>
+            <a href = "https://frcteam3006.tumblr.com/" class = "fa fa-tumblr" target = "_blank"></a>
+            <a href = "https://www.snapchat.com/add/frc-3006" class = "fa fa-snapchat-ghost" target = "_blank"></a>
             <p></p>
-            <div class="fb-page" data-href="https://www.facebook.com/RedRockRobot" 
-                 data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" 
-                 data-hide-cover="false" data-show-facepile="true">
-            </div>
-            
+            <div class="fb-page" data-href="https://www.facebook.com/RedRockRobot" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/RedRockRobot" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/RedRockRobot">FRC 3006: Red Rock Robotics</a></blockquote></div>
 
         </div>
     </body>
