@@ -22,6 +22,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const mongoClient = mongodb.MongoClient;
+const mongoUrl = 'mongodb://admin:WestRoboticsWeb@cluster0-shard-00-00-lchs7.mongodb.net:27017,cluster0-shard-00-01-lchs7.mongodb.net:27017,cluster0-shard-00-02-lchs7.mongodb.net:27017/data?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
 
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
@@ -165,7 +166,7 @@ app.get('/updates', function(req, res)
             let fbDoc = new DOMParser().parseFromString(body, 'text/html');
 
             let posts = new Array();
-            let content = fbDoc.getElementsByClassName('fbUserStory');
+            let content = fbDoc.getElementsByClassName('userContentWrapper');
             for(let i = 0; i < content.length; i++)
             {
                 let para = content[i].getElementsByClassName('_5pbx userContent');
@@ -203,14 +204,15 @@ app.get('/scoutingdata', function(req, res) {
 });
 
 app.post('/scoutingdata', urlendcodedParser, (req, res) => {
-    mongoClient.connect('mongodb://localhost:27017/sample', (error, db) => {
+    mongoClient.connect(mongoUrl, (error, db) => {
         if (error) {
             console.log("Error: " + error);
         }
         else {
             let collections = db.collection('data');
 
-            let output = [{"teamnum" : "NO DATA", "matchnum" : "NO DATA", "ballsscored" : "NO DATA", "gearsscored" : "NO DATA"}];
+            let output = [{"teamnum" : "NO DATA", "matchnum" : "NO DATA", "highboxes" : "NO DATA", "lowboxes" : "NO DATA", 
+            "auto" : "NO DATA", "endgame" : "NO DATA"}];
 
             collections.find({"teamnum" : req.body.teamnum}).toArray((err, result) => {
                 if(err){
@@ -230,6 +232,17 @@ app.post('/scoutingdata', urlendcodedParser, (req, res) => {
     });
 });
 
+app.post('/scoutingsend', urlendcodedParser, (req, res) => {
+    mongoClient.connect(mongoUrl, (error, db) => 
+    {
+        let collections = db.collection('data');
+        
+        let input = [{"teamnum" : req.body.teamnum, "matchnum" : req.body.matchnum, "highboxes" : req.body.highboxes, "lowboxes" : req.body.lowboxes, 
+        "auto" : req.body.auto, "endgame" : req.body.endgame}];
+
+        collections.insert(input);
+    });
+});
 
 app.set('port', process.env.PORT || 3000);
 
