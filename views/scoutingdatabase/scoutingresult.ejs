@@ -23,8 +23,10 @@
             <% for(let i =0; i < out.length; i++) { %>
                 <h2>Match Number: <%= out[i].matchnum %></h2>
                 <p>Team: <%= out[i].teamnum %></p>
-                <p>Balls Scored: <%= out[i].ballsscored %></p>
-                <p>Gears Scored: <%= out[i].gearsscored %></p>
+                <p>High Boxes Scored: <%= out[i].highboxes %></p>
+                <p>Low Boxes Scored: <%= out[i].lowboxes %></p>
+                <p>Autonomous: <%= out[i].auto %></p>
+                <p>Endgame: <%= out[i].endgame %></p>
             <% } %>
 
         </div>
