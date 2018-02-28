@@ -211,8 +211,8 @@ app.post('/scoutingdata', urlendcodedParser, (req, res) => {
         else {
             let collections = db.collection('data');
 
-            let output = [{"teamnum" : "NO DATA", "matchnum" : "NO DATA", "highboxes" : "NO DATA", "lowboxes" : "NO DATA", 
-            "auto" : "NO DATA", "endgame" : "NO DATA"}];
+            let output = [{"teamnum" : "NO DATA", "matchnum" : "NO DATA", "highboxes" : "NO DATA", "lowboxesSelf" : "NO DATA", 
+            "auto" : "NO DATA", "endgame" : "NO DATA", "lowboxesEnemy" : "NO DATA", "pass-line" : "NO DATA", "additional-notes" : "NO DATA"}];
 
             collections.find({"teamnum" : req.body.teamnum}).toArray((err, result) => {
                 if(err){
@@ -237,8 +237,8 @@ app.post('/scoutingsend', urlendcodedParser, (req, res) => {
     {
         let collections = db.collection('data');
         
-        let input = [{"teamnum" : req.body.teamnum, "matchnum" : req.body.matchnum, "highboxes" : req.body.highboxes, "lowboxes" : req.body.lowboxes, 
-        "auto" : req.body.auto, "endgame" : req.body.endgame}];
+        let input = [{"teamnum" : req.body.teamnum, "matchnum" : req.body.matchnum, "highboxes" : req.body.highboxes, "lowboxesSelf" : req.body.lowSelf, 
+        "auto" : req.body.auto, "endgame" : req.body.endgame, "lowboxesEnemy" : req.body.lowEnemy, "pass-line" : req.body.line, "additional-notes" : req.body.notes}];
 
         collections.insert(input);
     });

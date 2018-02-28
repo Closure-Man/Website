@@ -24,9 +24,12 @@
                 <h2>Match Number: <%= out[i].matchnum %></h2>
                 <p>Team: <%= out[i].teamnum %></p>
                 <p>High Boxes Scored: <%= out[i].highboxes %></p>
-                <p>Low Boxes Scored: <%= out[i].lowboxes %></p>
+                <p>Low Boxes on Own Switch Scored: <%= out[i].lowboxesSelf %></p>
+                <p>Low Boxes on Opposing Switch Scored: <%= out[i].lowboxesEnemy %></p>
                 <p>Autonomous: <%= out[i].auto %></p>
+                <p>Passed the line in Auto: <%= out[i].pass-line %></p>
                 <p>Endgame: <%= out[i].endgame %></p>
+                <p>Additional Notes: <%= out[i].additional-notes %></p>
             <% } %>
 
         </div>
