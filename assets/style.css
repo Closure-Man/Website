@@ -39,7 +39,7 @@ p
     color: #ccc; 
     width: 10%;
     height: 100%;
-    font-size: 2vh;
+    font-size: 1.2vw;
     text-align: center;
 }
 
@@ -165,7 +165,7 @@ p
     display: block;
     z-index: 1;
     min-width: 8%;
-    font-size: 1.75vh;
+    font-size: 1.05vw;
     box-shadow: 2px 2px 2px #888888;
 }
 
