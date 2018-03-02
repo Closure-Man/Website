@@ -24,6 +24,7 @@ const transporter = nodemailer.createTransport({
 const mongoClient = mongodb.MongoClient;
 const mongoUrl = 'mongodb://admin:WestRoboticsWeb@cluster0-shard-00-00-lchs7.mongodb.net:27017,cluster0-shard-00-01-lchs7.mongodb.net:27017,cluster0-shard-00-02-lchs7.mongodb.net:27017/data?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
 
+
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
 
@@ -232,16 +233,35 @@ app.post('/scoutingdata', urlendcodedParser, (req, res) => {
     });
 });
 
+app.get('/scoutingsend', (req, res) => 
+{
+    res.send("Tricky boy, this is for us");
+})
+
 app.post('/scoutingsend', urlendcodedParser, (req, res) => {
+    let message = "Data Recieved";
+    Console.log("Connected to a client");
     mongoClient.connect(mongoUrl, (error, db) => 
     {
-        let collections = db.collection('data');
+        if(error)
+        {
+            message = "Error";
+            throw new Error("Mongo Died");
+        }
+        else
+        {
+            let collections = db.collection('data');
         
-        let input = [{"teamnum" : req.body.teamnum, "matchnum" : req.body.matchnum, "highboxes" : req.body.highboxes, "lowboxesSelf" : req.body.lowSelf, 
-        "auto" : req.body.auto, "endgame" : req.body.endgame, "lowboxesEnemy" : req.body.lowEnemy, "passline" : req.body.line, "additionalnotes" : req.body.notes}];
+            let input = {"teamnum" : req.body.teamnum, "matchnum" : req.body.matchnum, "highboxes" : req.body.highboxes, "lowboxesSelf" : req.body.lowSelf, 
+            "auto" : req.body.auto, "endgame" : req.body.endgame, "lowboxesEnemy" : req.body.lowEnemy, "passline" : req.body.line, "additionalnotes" : req.body.notes};
 
-        collections.insert(input);
+            collections.insertOne(input);
+
+            collections.insertOne({"worked" : "yes"});
+        }
     });
+
+    res.send(message);
 });
 
 app.set('port', process.env.PORT || 3000);
